@@ -10,6 +10,7 @@ Scene
 ![Scene](https://github.com/ajdlp/ajdlp.github.io/blob/master/images/Scene.png)
 
 ### Contributors on GitHub
+* [Alex DeLaPena](https://github.com/ajdlp)
 * [Andrew Pham](https://github.com/atp1o2)
 * [Andres Castillo Ormaechea](https://github.com/ormaechea)
 * [Ashton Alexander](https://github.com/thrashmandicoot)
@@ -22,7 +23,7 @@ Scene
 ## Contact
 #### Developer
 * Homepage: alexdelapena.me
-* e-mail: ajdlp12@gmail.com
+* E-mail: ajdlp12@gmail.com
 * LinkedIn: [Alex DeLaPena](https://linkedin.com/in/alexdelapena)
 
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=username&url=https://github.com/username/sw-name&title=sw-name&language=&tags=github&category=software) 
