@@ -14,7 +14,6 @@ class PiecesController < ApplicationController
 
   def show
     @artist = Artist.find(params[:artist_id])
-    # @piece = Piece.find_by(artist_id: params[:artist_id])
     @piece = Piece.find(params[:id])
     render partial: "partials/show_piece", locals: { artist: @artist, piece: @piece }
   end
@@ -60,17 +59,3 @@ class PiecesController < ApplicationController
     params.require(:piece).permit(:img, :title, :description, :tag_list, :image)
   end
 end
-
-# add and remove multiple tags in an array
-# @user.tag_list.add("graffiti", "awesome")
-# @user.tag_list.remove("graffiti", "awesome")
-# @user.tag_list to return of tag.names
-# @user.tags to return tag objects
-
-# add skills to artist
-# @artist.skill_list = "spray paint, acryllic, oil"
-# @artist.save
-# @artist.skills => ['spray paint', acryllic, oil]
-
-# finding tagged objects
-# @piece.tagged_with(['tag_name, tag_name2']) returns objects
