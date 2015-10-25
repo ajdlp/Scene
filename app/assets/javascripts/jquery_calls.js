@@ -1,6 +1,3 @@
-
-
-
   var showPiece = function(){
     $(".pic").on('click', function(event){
 
@@ -57,7 +54,3 @@ var zoomHoverMed = function(){
 var smoothScroll = function(){
     window.scrollTo(0,140)
 }
-
-
-
-
