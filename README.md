@@ -1,12 +1,28 @@
-# Scene
-Bringing local organizations and artists together to make boring workspaces more interesting!
+Scene
+======
+
+**Scene** is a web application that connects organizations to local artists. The results are more exciting workspaces for organizations and recognition for artists in the community.
+
+## Domain
+[Scene](http://scenes.herokuapp.com) - hosted on Heroku
+
+#### Screenshot
+![Scene](https://github.com/ajdlp/ajdlp.github.io/blob/master/images/Scene.png)
+
+### Contributors on GitHub
+* [Andrew Pham](https://github.com/atp1o2)
+* [Andres Castillo Ormaechea](https://github.com/ormaechea)
+* [Ashton Alexander](https://github.com/thrashmandicoot)
+* [Lauryn Porte](https://github.com/lporte)
+
+## License 
+* See [LICENSE](https://github.com/ajdlp/Scene/blob/master/LICENSE)
 
 
-# AGILE Philosophy
-1. Take a story you want to work on by clicking start
-2. Vertical slice and complete story
-3. Click Finish in Pivotal
-4. Make a pull request!
-5. Click deliver
-6. Review Pull request w/ team
-7. Accept/Reject based on whether or not changes are good
+## Contact
+#### Developer
+* Homepage: alexdelapena.me
+* e-mail: ajdlp12@gmail.com
+* LinkedIn: [Alex DeLaPena](https://linkedin.com/in/alexdelapena)
+
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=username&url=https://github.com/username/sw-name&title=sw-name&language=&tags=github&category=software) 
