@@ -10,6 +10,7 @@ Scene
 ![Scene](https://github.com/ajdlp/ajdlp.github.io/blob/master/images/Scene.png)
 
 ### Contributors on GitHub
+* [Alex DeLaPena](https://github.com/ajdlp)
 * [Andrew Pham](https://github.com/atp1o2)
 * [Andres Castillo Ormaechea](https://github.com/ormaechea)
 * [Ashton Alexander](https://github.com/thrashmandicoot)
