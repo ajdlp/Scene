@@ -1,9 +1,14 @@
 class OrganizationsController < ApplicationController
+  before_action :find_organization, only: [:show, :edit, :update, :destroy]
+
+  def find_organization
+    @organization = Organization.find_by(id: params[:id])
+  end
+
   def index
   end
 
   def show
-    @organization = Organization.find_by(id: params[:id])
     @spaces = @organization.spaces
     @citystate = @organization.address.scan(/(.+?),\s*(.+?)(?:,\s|\s\s)(.+?)\s(\d{5})/)
     @location= @citystate[0][1] + ", " + @citystate[0][2]
@@ -23,11 +28,9 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    @organization = Organization.find_by(id: params[:id])
   end
 
   def update
-    @organization = Organization.find_by(id: params[:id])
     if @organization.update(organization_params)
       redirect_to organization_path
     else
@@ -36,7 +39,6 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
-    @organization = Organization.find_by(id: params[:organization_id])
     @organization.destroy
     redirect_to root_path
   end
