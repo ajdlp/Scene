@@ -1,5 +1,15 @@
 class PiecesController < ApplicationController
   include TagsHelper
+  before_action :find_artist, except: [:all_pieces, :update]
+  before_action :find_piece, only: [:show, :edit, :update, :destroy]
+
+  def find_artist
+    @artist = Artist.find(params[:artist_id])
+  end
+
+  def find_piece
+    @piece = Piece.find(params[:id])
+  end
 
   def all_pieces
     @pieces = Piece.all
@@ -8,22 +18,17 @@ class PiecesController < ApplicationController
   end
 
   def index
-    @artist = Artist.find(params[:artist_id])
     @pieces = @artist.pieces
   end
 
   def show
-    @artist = Artist.find(params[:artist_id])
-    @piece = Piece.find(params[:id])
     render partial: "partials/show_piece", locals: { artist: @artist, piece: @piece }
   end
 
   def new
-    @artist = Artist.find(params[:artist_id])
   end
 
   def create
-    @artist = Artist.find(params[:artist_id])
     @piece = @artist.pieces.new(piece_params)
     if @piece.save
       @piece.tag_list.add(params[:tag_list])
@@ -34,12 +39,9 @@ class PiecesController < ApplicationController
   end
 
   def edit
-    @artist = Artist.find(params[:artist_id])
-    @piece = Piece.find(params[:id])
   end
 
   def update
-    @piece = Piece.find(params[:id])
     if @piece.update(piece_params)
       redirect_to artist_piece_path(@piece.artist_id, @piece)
     else
@@ -48,8 +50,6 @@ class PiecesController < ApplicationController
   end
 
   def destroy
-    @piece = Piece.find(params[:id])
-    @artist = Artist.find(params[:artist_id])
     @piece.destroy
     redirect_to artist_path(@artist)
   end

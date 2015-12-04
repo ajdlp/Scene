@@ -1,5 +1,11 @@
 class ArtistsController < ApplicationController
   include ArtistsHelper
+  before_action :find_artist, only: [:show, :edit, :update, :destroy]
+
+  def find_artist
+    @artist = Artist.find_by(id: params[:id])
+  end
+
   def index
     @artists = Artist.all
     @organization = Organization.find_by(id: session[:organization_id])
@@ -15,7 +21,6 @@ class ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.find_by(id: params[:id])
     @pieces = @artist.pieces
     @citystate = @artist.address.scan(/(.+?),\s*(.+?)(?:,\s|\s\s)(.+?)\s(\d{5})/)
     @location= @citystate[0][1] + ", " + @citystate[0][2]
@@ -35,11 +40,9 @@ class ArtistsController < ApplicationController
   end
 
   def edit
-    @artist = Artist.find_by(id: params[:id])
   end
 
   def update
-    @artist = Artist.find_by(id: params[:id])
     if @artist.update(artist_params)
       redirect_to artist_path
     else
@@ -48,7 +51,6 @@ class ArtistsController < ApplicationController
   end
 
   def destroy
-    @artist = Artist.find_by(id: params[:id])
     @artist.destroy
     redirect_to root_path
   end

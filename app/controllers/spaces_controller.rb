@@ -1,4 +1,15 @@
 class SpacesController < ApplicationController
+  before_action :find_organization, except: [:all_spaces]
+  before_action :find_space, only: [:show, :edit, :update, :destroy]
+
+  def find_organization
+    @organization = Organization.find(params[:organization_id])
+  end
+
+  def find_space
+    @space = Space.find(params[:id])
+  end
+
   def all_spaces
     @spaces = Space.all
     half = @spaces.length
@@ -8,22 +19,17 @@ class SpacesController < ApplicationController
 
   def index
     @spaces = Organization.find_by(id: params[:organization_id]).spaces
-    @organization = Organization.find(params[:organization_id])
   end
 
   def show
-    @organization = Organization.find(params[:organization_id])
-    @space = Space.find(params[:id])
     render partial: "partials/show_space", locals: { space: @space }
   end
 
   def new
-    @organization = Organization.find(params[:organization_id])
     @space = Space.new
   end
 
   def create
-    @organization = Organization.find(params[:organization_id])
     @artist = Artist.find_by(email: params[:artist_id])
     @space = Space.new( space_params )
       if @space.save
@@ -36,13 +42,9 @@ class SpacesController < ApplicationController
   end
 
   def edit
-    @space = Space.find(params[:id])
-    @organization = Organization.find(params[:organization_id])
   end
 
   def update
-    @space = Space.find(params[:id])
-    @organization = Organization.find(params[:organization_id])
     if @space.update(space_params)
       redirect_to organization_space_path(@organization, @space)
     else
@@ -51,8 +53,6 @@ class SpacesController < ApplicationController
   end
 
   def destroy
-    @space = Space.find(params[:id])
-    @organization = Organization.find(params[:organization_id])
     @space.destroy
     redirect_to organization_path(@organization)
   end
